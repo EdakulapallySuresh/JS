@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Functions</title>
+</head>
+<body>
+    <h1>JavaScript Functions</h1>
+
+    <h2>1. Reverse Words in a Sentence</h2>
+    <label for="inputSentence">Enter a sentence:</label>
+    <input type="text" id="inputSentence">
+    <button onclick="reverseWords()">Reverse Words</button>
+    <p id="reversedSentence"></p>
+
+    <h2>2. Sort an Array in Descending Order</h2>
+    <label for="inputArray">Enter an array (comma-separated values):</label>
+    <input type="text" id="inputArray">
+    <button onclick="sortDescending()">Sort Array</button>
+    <p id="sortedArray"></p>
+
+    <script>
+        function reverseWords() {
+            var inputSentence = document.getElementById("inputSentence").value;
+            var words = inputSentence.split(' ');
+            var reversedWords = words.map(function (word) {
+                return word.split('').reverse().join('');
+            });
+            var reversedSentence = reversedWords.join(' ');
+            document.getElementById("reversedSentence").textContent = "Reversed Sentence: " + reversedSentence;
+        }
+
+        function sortDescending() {
+            var inputArray = document.getElementById("inputArray").value;
+            var numbers = inputArray.split(',').map(function (value) {
+                return parseFloat(value);
+            });
+            numbers.sort(function (a, b) {
+                return b - a;
+            });
+            document.getElementById("sortedArray").textContent = "Sorted Array (Descending): " + numbers.join(', ');
+        }
+    </script>
+</body>
+</html>
